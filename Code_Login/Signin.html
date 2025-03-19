@@ -1,0 +1,500 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Đăng ký | STYLE 5.0</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background-color: #f8f8f8;
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: linear-gradient(135deg, #ff6b6b, #6b66ff);
+            overflow: hidden;
+            position: relative;
+        }
+        
+        .shapes {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            z-index: 0;
+        }
+        
+        .shape {
+            position: absolute;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(5px);
+        }
+        
+        .shape:nth-child(1) {
+            width: 300px;
+            height: 300px;
+            top: -150px;
+            left: -100px;
+        }
+        
+        .shape:nth-child(2) {
+            width: 200px;
+            height: 200px;
+            bottom: -50px;
+            right: 50px;
+        }
+        
+        .shape:nth-child(3) {
+            width: 150px;
+            height: 150px;
+            bottom: 150px;
+            left: 60%;
+        }
+        
+        .container {
+            display: flex;
+            max-width: 1000px;
+            width: 90%;
+            margin: 0 auto;
+            background: rgba(255, 255, 255, 0.8);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
+            z-index: 1;
+            position: relative;
+        }
+        
+        .signup-image {
+            flex: 1;
+            background-image: url('/api/placeholder/500/800');
+            background-size: cover;
+            background-position: center;
+            position: relative;
+            display: flex;
+            align-items: flex-end;
+            padding: 30px;
+            color: white;
+        }
+        
+        .signup-image::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(to top, rgba(0, 0, 0, 0.7), transparent);
+        }
+        
+        .left-panel {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  padding: 30px;
+  background: linear-gradient(to bottom, rgba(0,0,0,0.8), rgba(60,60,60,0.6));
+  text-align: center;
+}
+
+.logo-container {
+  margin-bottom: 60px;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.brand-logo {
+  width: 250px;
+  max-width: 80%;
+  filter: drop-shadow(0 0 12px rgba(0,0,0,0.4));
+}
+
+.brand-text {
+  color: white;
+  text-align: center;
+}
+
+.brand-text h2 {
+  font-size: 28px;
+  margin-bottom: 15px;
+}
+
+.brand-text p {
+  font-size: 16px;
+  line-height: 1.5;
+  opacity: 0.9;
+}
+        
+        .brand h3 {
+            font-size: 30px;
+            font-weight: 700;
+            margin-bottom: 10px;
+            letter-spacing: 2px;
+        }
+        
+        .brand p {
+            font-size: 16px;
+            font-weight: 300;
+            max-width: 80%;
+        }
+        
+        .signup-form {
+            flex: 1.2;
+            padding: 40px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+        
+        .signup-form h2 {
+            font-size: 32px;
+            margin-bottom: 30px;
+            position: relative;
+            color: #333;
+            font-weight: 600;
+        }
+        
+        .signup-form h2::after {
+            content: '';
+            position: absolute;
+            left: 0;
+            bottom: -10px;
+            width: 50px;
+            height: 4px;
+            background: linear-gradient(to right, #ff6b6b, #6b66ff);
+            border-radius: 2px;
+        }
+        
+        .form-row {
+            display: flex;
+            gap: 15px;
+            margin-bottom: 20px;
+        }
+        
+        .form-group {
+            margin-bottom: 20px;
+            position: relative;
+            flex: 1;
+        }
+        
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            color: #555;
+            font-size: 14px;
+            font-weight: 500;
+        }
+        
+        .form-control {
+            width: 100%;
+            padding: 15px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            font-size: 16px;
+            transition: all 0.3s;
+            background: rgba(255, 255, 255, 0.9);
+        }
+        
+        .form-control:focus {
+            border-color: #6b66ff;
+            box-shadow: 0 0 0 3px rgba(107, 102, 255, 0.2);
+            outline: none;
+        }
+        
+        .form-options {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 25px;
+            font-size: 14px;
+        }
+        
+        .checkbox-group {
+            display: flex;
+            align-items: flex-start;
+        }
+        
+        .checkbox-group input {
+            margin-right: 8px;
+            margin-top: 3px;
+        }
+        
+        .checkbox-group label {
+            color: #555;
+            line-height: 1.4;
+        }
+        
+        .checkbox-group a {
+            color: #6b66ff;
+            text-decoration: none;
+            font-weight: 500;
+        }
+        
+        .checkbox-group a:hover {
+            text-decoration: underline;
+        }
+        
+        .btn-signup {
+            padding: 15px;
+            background: linear-gradient(135deg, #ff6b6b, #6b66ff);
+            color: white;
+            border: none;
+            border-radius: 8px;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        
+        .btn-signup:hover {
+            background: linear-gradient(135deg, #ff5252, #5a54ff);
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(107, 102, 255, 0.3);
+        }
+        
+        .signup-footer {
+            text-align: center;
+            margin-top: 25px;
+            font-size: 14px;
+            color: #666;
+        }
+        
+        .signup-footer a {
+            color: #6b66ff;
+            text-decoration: none;
+            font-weight: 500;
+        }
+        
+        .signup-footer a:hover {
+            text-decoration: underline;
+        }
+        
+        .social-signup {
+            display: flex;
+            justify-content: center;
+            margin-top: 20px;
+            gap: 15px;
+        }
+        
+        .social-btn {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: white;
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+        
+        .social-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.15);
+        }
+        
+        .divider {
+            display: flex;
+            align-items: center;
+            margin: 20px 0;
+            color: #777;
+        }
+        
+        .divider::before,
+        .divider::after {
+            content: '';
+            flex: 1;
+            height: 1px;
+            background: #ddd;
+        }
+        
+        .divider span {
+            padding: 0 15px;
+            font-size: 14px;
+        }
+        
+        .interest-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-top: 10px;
+            margin-bottom: 20px;
+        }
+        
+        .interest-tag {
+            display: inline-block;
+        }
+        
+        .interest-tag input {
+            display: none;
+        }
+        
+        .interest-tag label {
+            display: inline-block;
+            padding: 6px 15px;
+            background-color: #f1f1f1;
+            border-radius: 20px;
+            cursor: pointer;
+            font-size: 14px;
+            transition: all 0.3s;
+            color: #555;
+        }
+        
+        .interest-tag input:checked + label {
+            background: linear-gradient(135deg, #ff6b6b, #6b66ff);
+            color: white;
+        }
+        
+        @media (max-width: 850px) {
+            .container {
+                flex-direction: column;
+                width: 95%;
+                max-height: 90vh;
+                overflow-y: auto;
+            }
+            
+            .signup-image {
+                min-height: 200px;
+            }
+            
+            .signup-form {
+                padding: 30px 20px;
+            }
+            
+            .form-row {
+                flex-direction: column;
+                gap: 0;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="shapes">
+        <div class="shape"></div>
+        <div class="shape"></div>
+        <div class="shape"></div>
+    </div>
+    
+    <div class="container">
+        <div class="left-panel">
+            <div class="logo-container">
+              <img src="LogoBrand.png" alt="Zorro Knight Logo" class="brand-logo">
+            </div>
+            <div class="brand-text">
+              <h2>Zorro Knight</h2>
+              <p>Khám phá phong cách thời trang đầy cá tính của bạn cùng chúng tôi.</p>
+            </div>
+          </div>
+        
+        <div class="signup-form">
+            <h2>Đăng ký tài khoản</h2>
+            
+            <form action="#" method="post">
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="firstName">Họ</label>
+                        <input type="text" id="firstName" class="form-control" placeholder="Nhập họ của bạn">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="lastName">Tên</label>
+                        <input type="text" id="lastName" class="form-control" placeholder="Nhập tên của bạn">
+                    </div>
+                </div>
+                
+                <div class="form-group">
+                    <label for="email">Email</label>
+                    <input type="email" id="email" class="form-control" placeholder="Nhập địa chỉ email">
+                </div>
+                
+                <div class="form-group">
+                    <label for="username">Tên đăng nhập</label>
+                    <input type="text" id="username" class="form-control" placeholder="Tạo tên đăng nhập">
+                </div>
+                
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="password">Mật khẩu</label>
+                        <input type="password" id="password" class="form-control" placeholder="Tạo mật khẩu">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="confirmPassword">Xác nhận mật khẩu</label>
+                        <input type="password" id="confirmPassword" class="form-control" placeholder="Nhập lại mật khẩu">
+                    </div>
+                </div>
+                
+                <div class="form-group">
+                    <label>Phong cách yêu thích của bạn</label>
+                    <div class="interest-tags">
+                        <div class="interest-tag">
+                            <input type="checkbox" id="tag1" name="style">
+                            <label for="tag1">Minimalist</label>
+                        </div>
+                        <div class="interest-tag">
+                            <input type="checkbox" id="tag2" name="style">
+                            <label for="tag2">Streetwear</label>
+                        </div>
+                        <div class="interest-tag">
+                            <input type="checkbox" id="tag3" name="style">
+                            <label for="tag3">Vintage</label>
+                        </div>
+                        <div class="interest-tag">
+                            <input type="checkbox" id="tag4" name="style">
+                            <label for="tag4">Bohemian</label>
+                        </div>
+                        <div class="interest-tag">
+                            <input type="checkbox" id="tag5" name="style">
+                            <label for="tag5">K-Fashion</label>
+                        </div>
+                        <div class="interest-tag">
+                            <input type="checkbox" id="tag6" name="style">
+                            <label for="tag6">Y2K</label>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="form-options">
+                    <div class="checkbox-group">
+                        <input type="checkbox" id="agree">
+                        <label for="agree">Tôi đồng ý với <a href="#">Điều khoản sử dụng</a> và <a href="#">Chính sách bảo mật</a> của Zorro Knight</label>
+                    </div>
+                </div>
+                
+                <button type="submit" class="btn-signup">Đăng ký ngay</button>
+                
+                <div class="divider">
+                    <span>Hoặc</span>
+                </div>
+                
+                <div class="social-signup">
+                    <div class="social-btn">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#4267B2" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path></svg>
+                    </div>
+                    <div class="social-btn">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#DB4437" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22C6.477 22 2 17.523 2 12S6.477 2 12 2s10 4.477 10 10-4.477 10-10 10z"></path><path d="M8 12h8"></path><path d="M12 8v8"></path></svg>
+                    </div>
+                    <div class="social-btn">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#000000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18.71 19.5C17.88 20.74 17 21.95 15.66 21.97C14.32 22 13.89 21.18 12.37 21.18C10.84 21.18 10.37 21.95 9.09997 22C7.78997 22.05 6.79997 20.68 5.95997 19.47C4.24997 17 2.93997 12.45 4.69997 9.39C5.56997 7.87 7.12997 6.91 8.81997 6.88C10.1 6.86 11.32 7.75 12.11 7.75C12.89 7.75 14.37 6.68 15.92 6.84C16.57 6.87 18.39 7.1 19.56 8.82C19.47 8.88 17.39 10.1 17.41 12.63C17.44 15.65 20.06 16.66 20.09 16.67C20.06 16.74 19.67 18.11 18.71 19.5Z"></path><path d="M13 3.5C13.73 4.18 14.94 4.79 15.95 4.72C16.06 3.72 15.6 2.71 14.9 2.05C14.2 1.39 13.02 0.818 11.95 0.9C11.85 1.91 12.23 2.9 13 3.5Z"></path></svg>
+                    </div>
+                </div>
+            </form>
+            
+            <div class="signup-footer">
+                <p>Đã có tài khoản? <a href="#">Đăng nhập</a></p>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
