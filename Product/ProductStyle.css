@@ -1,138 +1,231 @@
-/* style.css*/
-body {
+* {
     margin: 0;
-    font-family: Arial, sans-serif;
-    background-color: #f4f4f4;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
 }
+
+body {
+    background-color: #f5f5f5;
+}
+
 .container {
-    max-width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
     padding: 10px;
 }
+
 .header {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin-bottom: 10px;
+    padding: 10px 0;
+    margin-bottom: 15px;
 }
+
 .nav-buttons {
     display: flex;
-    gap: 5px;
-}
-.nav-button {
-    border: none;
-    background-color: transparent;
-    padding: 5px 10px;
-    font-size: 12px;
-}
-.nav-button.active {
-    background-color: #ff5722;
-    color: white;
-}
-.page-count {
-    font-size: 12px;
-    color: #666;
-}
-.price-filter {
-    border: 1px solid #ddd;
-    padding: 5px;
-    font-size: 12px;
-}
-.product-grid {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
     gap: 10px;
 }
+
+.nav-button {
+    padding: 6px 12px;
+    border: 1px solid #e0e0e0;
+    background-color: white;
+    border-radius: 2px;
+    cursor: pointer;
+    font-size: 13px;
+}
+
+.nav-button.active {
+    color: white;
+    background-color: #ee4d2d;
+    border-color: #ee4d2d;
+}
+
+.price-filter {
+    padding: 6px 12px;
+    border: 1px solid #e0e0e0;
+    background-color: white;
+    border-radius: 2px;
+    cursor: pointer;
+    font-size: 13px;
+}
+
+.page-count {
+    color: #555;
+    font-size: 14px;
+}
+
+.product-grid {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 10px;
+}
+
 .product-card {
     background-color: white;
-    border: 1px solid #e0e0e0;
+    border-radius: 2px;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    transition: transform 0.2s;
     position: relative;
 }
+
+.product-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+}
+
 .product-image {
-    width: 30%;
-    padding-top: 40%;
     position: relative;
+    padding-top: 100%;
     overflow: hidden;
 }
+
 .product-image img {
     position: absolute;
     top: 0;
     left: 0;
-    width: 70%;
-    height: 80%;
+    width: 100%;
+    height: 100%;
     object-fit: cover;
 }
-.ad-tag {
-    position: absolute;
-    top: 5px;
-    left: 5px;
-    background-color: #0068ff;
-    color: white;
-    padding: 2px 5px;
-    font-size: 10px;
-}
-.sale-tag {
-    position: absolute;
-    top: 5px;
-    right: 5px;
-    background-color: #ff5722;
-    color: white;
-    padding: 2px 5px;
-    font-size: 12px;
-}
-.favorite-tag {
-    position: absolute;
-    top: 30px;
-    right: 5px;
-    background-color: #ff5722;
-    color: white;
-    padding: 2px 5px;
-    font-size: 10px;
-}
-.product-details {
-    padding: 10px;
-}
-.product-title {
-    font-size: 12px;
-    margin-bottom: 5px;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    white-space: nowrap;
-}
-.price-info {
-    display: flex;
-    align-items: center;
-    margin-bottom: 5px;
-}
-.current-price {
-    color: #ff5722;
-    font-weight: bold;
-    margin-right: 10px;
-}
-.original-price {
-    color: #888;
-    text-decoration: line-through;
-    font-size: 10px;
-}
-.product-meta {
-    display: flex;
-    justify-content: space-between;
-    font-size: 10px;
-    color: #888;
-}
-.rating {
-    display: flex;
-    align-items: center;
-}
-.rating span {
-    color: #ffc107;
-    margin-right: 3px;
-}
-.shipping-tag {
-    background-color: #4CAF50;
-    color: white;
-    padding: 2px 5px;
-    font-size: 10px;
+
+.product-image .video-indicator {
     position: absolute;
     bottom: 5px;
     right: 5px;
+    background-color: rgba(0, 0, 0, 0.5);
+    color: white;
+    border-radius: 50%;
+    width: 24px;
+    height: 24px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.sale-tag {
+    position: absolute;
+    top: 0;
+    right: 0;
+    background-color: rgba(255, 212, 36, 0.9);
+    color: #ee4d2d;
+    padding: 2px 4px;
+    font-size: 12px;
+    font-weight: bold;
+}
+
+.discount-tag {
+    position: absolute;
+    top: 0;
+    right: 0;
+    background-color: #ee4d2d;
+    color: white;
+    padding: 2px 4px;
+    font-size: 12px;
+    font-weight: bold;
+}
+
+.favorite-tag {
+    position: absolute;
+    top: 5px;
+    left: 5px;
+    background-color: #ee4d2d;
+    color: white;
+    padding: 2px 6px;
+    font-size: 12px;
+    font-weight: bold;
+    border-radius: 2px;
+}
+
+.product-details {
+    padding: 8px;
+}
+
+.product-title {
+    font-size: 12px;
+    color: #333;
+    margin-bottom: 5px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    height: 36px;
+}
+
+.price-info {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    margin-bottom: 5px;
+}
+
+.current-price {
+    font-size: 16px;
+    color: #ee4d2d;
+    font-weight: bold;
+}
+
+.original-price {
+    font-size: 12px;
+    color: #999;
+    text-decoration: line-through;
+}
+
+.discount-percent {
+    font-size: 12px;
+    color: #ee4d2d;
+}
+
+.product-meta {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 12px;
+    color: #999;
+}
+
+.rating {
+    color: #999;
+}
+
+.rating span {
+    color: #ee4d2d;
+}
+
+.promotion-tag {
+    margin-top: 5px;
+    display: inline-block;
+    background-color: #ffeee8;
+    border: 1px solid #ee4d2d;
+    color: #ee4d2d;
+    padding: 2px 4px;
+    font-size: 12px;
+    border-radius: 2px;
+}
+
+.purchase-tag {
+    margin-top: 5px;
+    display: inline-block;
+    background-color: #ffeee8;
+    border: 1px solid #ee4d2d;
+    color: #ee4d2d;
+    padding: 2px 4px;
+    font-size: 12px;
+    border-radius: 2px;
+    margin-left: 5px;
+}
+
+.similar-product-btn {
+    width: 100%;
+    background-color: #ee4d2d;
+    color: white;
+    border: none;
+    padding: 8px;
+    text-align: center;
+    font-size: 14px;
+    cursor: pointer;
 }
